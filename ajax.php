@@ -14,17 +14,27 @@ function bpln_process_notification_request( $response, $data, $screen_id ) {
 	if ( isset( $data['bpln-data'] ) ) {
 		
 		$notifications = array();
+		$notification_ids = array();
 		
 		$request = $data['bpln-data'];
 		
-		if( ! empty( $request ) ){
+		$last_notified_id = absint( $request['last_notified'] );
+		
+		if( ! empty( $request ) ) {
 			
-			$notifications = bpln_get_new_notifications( get_current_user_id(), $request['last_notified'] );
+			$notifications = bpln_get_new_notifications( get_current_user_id(),  $last_notified_id );
+			
+			$notification_ids = wp_list_pluck( $notifications, 'id');
+			
 			$notifications = bpln_get_notification_messages( $notifications );
+			
 		}
+		//include our last notified id to the list
+		$notification_ids[] = $last_notified_id;
+		//find the max id that we are sending with this request
+		$last_notified_id = max( $notification_ids );
 		
-		
-		$response['bpln-data'] = array('messages'=> $notifications, 'last_notified'=> current_time ('mysql')  );
+		$response['bpln-data'] = array('messages'=> $notifications, 'last_notified'=> $last_notified_id  );
 		
     }
     return $response;

@@ -1,12 +1,12 @@
 <?php
 /* Plugin Name: BuddyPress Live Notification
  * Plugin URI: http://buddydev.com/plugins/buddypress-live-notification/
- * Version: 2.0.0
+ * Version: 2.0.1
  * Description: Adds a Facebook Like realtime notification for user on a BuddyPress based social network
  * Author: Brajesh Singh
  * Author URI: http://buddydev.com/members/sbrajesh
  * License: GPL
- * Last Modified: March 10, 2015
+ * Last Modified: May 10, 2015
  * 
  * */
 
@@ -95,8 +95,8 @@ class BP_Live_Notification_Helper {
 		
 		
 		return apply_filters( 'bpln_get_js_settings', array(
-				'timeout' => 10, //timeou in 10 seconds
-				'last_notified' => current_time( 'mysql' ) //please do not change last_notified as we use it to filter the new notifications
+				'timeout'		=> 10, //timeou in 10 seconds
+				'last_notified' => bpln_get_latest_notification_id() //please do not change last_notified as we use it to filter the new notifications
 		));
 	}
 	/**

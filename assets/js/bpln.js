@@ -2,7 +2,7 @@
 jQuery(document).ready(function(){
 	
     var jq = jQuery;
-	
+	//last notified id
 	var last_notified = bpln.last_notified;
 	
 	var new_notifications_count = 0;

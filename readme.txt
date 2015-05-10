@@ -2,8 +2,8 @@
 Contributors: sbrajesh,buddydev,anusharma
 Tags: buddypress, notifications, live
 Requires at least: BuddyPress 1.9
-Tested up to: BuddyPress 2.2.1
-Stable tag: 2.0.0
+Tested up to: BuddyPress 2.2.3.1
+Stable tag: 2.0.1
 License: GPLv2 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,11 @@ Please visit [BuddyDev](http://buddydev.com/buddypress/introducing-buddypress-li
 1. This shows live update of notification bar screenshot-2.png
 
 == Changelog ==
+
+= 2.0.1 =
+1. Fixes the infinite notification bug. 
+1. Uses latest notification id instead of time for checking the new notifications. 
+
 
 = 2.0.0 =
 1. Complete rewrite for better code and efficiency. 
